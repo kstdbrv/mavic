@@ -1,0 +1,59 @@
+.questions{
+  &__items{
+    max-width: 757px;
+    padding-bottom: 15px;
+    margin-left: 25px;
+  }
+  &__item{
+    max-width: 690px;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: relative;
+    
+    &:nth-child(3)::before{
+      content: '';
+      position: absolute;
+      background-image: url('../../images/mavic-small.png');
+      width: 319px;
+      height: 125px;
+      top: -33px;
+      right: -386px;
+    }
+  }
+  &__item-title{
+    font-size: 21px;
+    line-height: 28px;
+    @extend %ubuntu-medium;
+    color:rgba(#fff, .8);
+    padding: 20px 10px 20px 40px;
+    margin-bottom: 4px;
+    position: relative;
+    cursor:pointer;
+     &::after{
+       position: absolute;
+       content: url('../../images/questions-arrow.svg');
+       width: 72px;
+       height: 67px;
+       right: -72px;
+       top: 0;
+       background-color: #fff;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+     }
+  }
+  &__item-text{
+    font-size: 15px;
+    line-height: 22px;
+    padding: 0 5px 75px 50px;
+    margin: 0 0 4px;
+    display: none;
+  }
+  &__item.questions__item--active{
+    .questions__item-title::after{
+      transform: rotate(180deg);
+    }
+    .questions__item-text{
+      display: block;
+    }
+  }
+}

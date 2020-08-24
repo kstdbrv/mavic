@@ -1,0 +1,65 @@
+.header{
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 30px;
+  &__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    min-height: 30px;
+    font-size: 15px;
+    line-height: 17px;
+    @extend %ubuntu-medium;
+  }
+  &__btn{
+    color: #fff;
+    background-color: transparent;
+    padding: 6px 28px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: all .3s;
+     &:hover{
+      color:#000;
+      background-color:#fff;
+     }
+     &:active{
+      color: #fff;
+      background-color:transparent;
+     }
+  }
+  &__phone{
+    @extend %ubuntu-bold;
+    font-size: 16px;
+    line-height: 18px;
+    transition: all .3s;
+     &:hover{
+      color: lightgrey;
+    }
+     &:active{
+      color: #fff;
+    }
+  }
+}
+.menu{
+  &__list-item{
+   display: inline-block;
+   & + .menu__list-item{
+     padding-left: 20px;
+   }
+  }
+  &__list-link{
+    transition: all .3s;
+    &:hover{
+      padding-bottom: 8px;
+     border-bottom: 1px solid #fff;
+     color:lightgrey;
+    }
+    &:active{
+      color: #fff;
+    }
+  }
+}
