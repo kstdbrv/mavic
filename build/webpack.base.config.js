@@ -1,5 +1,7 @@
 const path = require('path')
 const fs = require('fs')
+/* const $ = require( 'jquery' ) */
+const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -24,6 +26,9 @@ module.exports = {
     filename: 'js/[name].[chunkhash].js',
     path: PATHS.dist
   },
+/*   resolve: {
+    modules: [`${PATHS.src}fullpage.js/fullpage.extensions.min`, "node_modules"]
+  }, */
   optimization: {
     splitChunks: {
       cacheGroups: {
@@ -38,13 +43,19 @@ module.exports = {
   },
   module: {
     rules: [
-    {
-      test: require.resolve('jquery'),
-      loader: 'expose-loader',
-      options: {
-        exposes: ['$', 'jQuery'],
-    }
-    },
+/*     {
+      test: require.resolve("jquery"),
+      use: [
+          {
+           loader: "expose-loader",
+           options: "jQuery"
+          },
+          {
+            loader: "expose-loader",
+            options: "$"
+          }
+      ]
+    }, */
     {
       test: /\.pug$/,
       use: ['pug-loader']
@@ -103,6 +114,11 @@ module.exports = {
     },]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      "window.jQuery": 'jquery',
+     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].css'

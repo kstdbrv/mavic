@@ -17,14 +17,28 @@ $(function(){
 
   });
 
-  $('#fullpage').fullpage({
-		//options here
-		autoScrolling:true,
-    scrollHorizontally: true,
-    sectionSelector: '.page-section',
-	});
-
-
+  $('#myFullpage').fullpage({
+  autoScrolling:true,
+  scrollHorizontally: true,
+  sectionSelector: '.page-section',
+  scrollOverflow: false,
+  menu: '#header-nav',
+  anchors: ['top', 'products', 'benefits', 'specification', 'questions', 'contacts'],
+});
 
 });
 
+
+
+
+
+
+
+/*   var fullPageInstance = new fullpage('#myFullpage', {
+    autoScrolling:true,
+    scrollHorizontally: false,
+    sectionSelector: '.page-section',
+    scrollOverflow: true,
+    menu: '#header-nav',
+    anchors: ['top', 'products', 'benefits', 'specification', 'questions', 'contacts'],
+  }); */
